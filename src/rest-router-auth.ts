@@ -8,6 +8,7 @@ import { GetBpMetadataController } from './controllers/get-bp-metadata-controlle
 import { GetController } from './controllers/get-controller';
 import { GetListController } from './controllers/get-list-controller';
 import { SaveDataController } from './controllers/save-data-controller';
+import { T1Controller } from './controllers/t1-controller';
 import { Lib } from './libs/lib';
 import { getLogger } from './libs/logger';
 import { MetadataStorage } from './model/metadata';
@@ -82,6 +83,9 @@ export class RestRouterAuth {
 
         cnt = new SaveDataController(MetadataStorage.getMetadata()['cmms_wo']);
         router.post(`/cmms_wo/:iddep`, this.setRequestContext(cnt, 'iddep'));
+
+        cnt = new T1Controller();
+        router.get(`/t1`, this.setRequestContext(cnt, 'iddep'));
 
     }
 

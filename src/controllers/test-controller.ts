@@ -22,13 +22,7 @@ export class TestController extends BaseController {
 
         TestController.logger.info(CommonLib.getLogString(logId, 'handleRoutes /test get'));
 
-        //CommonLib.select(`select * from hr_organization_units`)
-        CommonLib.select(`select * from hr_organization_units`)
-            .subscribe(
-                (result) => {
-                    TestController.logger.info(CommonLib.getLogString(logId, `Test api - OK!`));
-                    res.json({ message: `Test api - OK!`, result: result.map(x => x.NAME) });
-                }
-            );
+        TestController.logger.info(CommonLib.getLogString(logId, `Test api - OK!`));
+        res.json({ message: `Test api - OK!` });
     }
 }
