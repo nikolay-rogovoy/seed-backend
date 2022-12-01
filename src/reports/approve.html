@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Order</title>
+    <style>
+      td {
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
+      }
+      table {
+        border-right: 1px solid black;
+        border-top: 1px solid black;
+        font-family: Calibri, Arial, sans-serif;
+      }
+      h1 {
+        text-align: center;
+        font-family: Calibri, Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Order</h1>
+    <b>
+    <table cellspacing = "0" style="width: 100%;">
+      <tr>
+        <td style="width: 35%; background-color: #E7F3FD;">Status</td>
+        <td>Printed</td>
+      </tr>
+      <tr>
+        <td style="width: 35%; background-color: #E7F3FD;">Order</td>
+        {{#each head}}
+        <td>{{this.orderNum}}</td>
+        {{/each}}
+      </tr>
+      <tr>
+        <td style="width: 35%; background-color: #E7F3FD;">Date</td>
+        {{#each head}}
+        <td>{{this.dt_str}}</td>
+        {{/each}}
+      </tr>
+      <tr>
+        <td style="width: 35%; background-color: #E7F3FD;">Asset Owning Department</td>
+        <td>Facilities Maintenance</td>
+      </tr>
+      <tr>
+        <td style="width: 35%; background-color: #E7F3FD;">Operations Assigned Department</td>
+        <td>INFRA</td>
+      </tr>
+      <tr>
+        <td style="width: 35%; background-color: #E7F3FD;">Area</td>
+        <td></td>
+      </tr>
+    </table>
+    <br>
+    </b>
+    <table cellspacing = "0" style="width: 100%;">
+      <tr>
+        <td style="width: 10%; background-color: #E7F3FD;"><b>Name</b></td>
+        <td style="width: 15%; background-color: #E7F3FD;"><b>Description</b></td>
+        <td style="width: 10%; background-color: #E7F3FD;"><b>Unit rate, USD</b></td>
+        <td style="width: 5%; background-color: #E7F3FD;"><b>Quantity</b></td>
+        <td style="width: 10%; background-color: #E7F3FD;"><b>Status</b></td>
+        <td style="width: 15%; background-color: #E7F3FD;"><b>Asset Number</b></td>
+        <td style="width: 15%; background-color: #E7F3FD;"><b>Start</b></td>
+        <td style="width: 10%; background-color: #E7F3FD;"><b>Complete</b></td>
+        <td style="width: 10%; background-color: #E7F3FD;"><b>Amount, USD</b></td>
+      </tr>
+      {{#each orders}}
+      <tr>
+        <td>{{this.work_order_no}}</td>
+        <td>{{this.description}}</td>
+        <td>{{this.unit_rate_str}}</td>
+        <td>{{this.qty}}</td>
+        <td>Printed</td>
+        <td>{{this.asset_number}}</td>
+        <td>{{this.scheduled_start_date_str}}</td>
+        <td>{{this.scheduled_completion_date_str}}</td>
+        <td>{{this.sm_str}}</td>
+      </tr>
+      {{/each}}
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Total Sum</td>
+        {{#each head}}
+        <td>{{this.total_sm_str}}</td>
+        {{/each}}
+      </tr>
+    </table>
+    <br>
+    <b>
+    {{#each head}}
+    <table cellspacing = "0" style="width: 100%;">
+      <tr>
+        <td style="width: 35%; background-color: #E7F3FD;">Company representative digital signature:</td>
+        <td>{{this.user}}, Facilities and Road Infrastructure Manager</td>
+      </tr>
+      <tr>
+        <td style="width: 35%; background-color: #E7F3FD;">Contractor representative signature:</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="width: 35%; background-color: #E7F3FD;">Name</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="width: 35%; background-color: #E7F3FD;">POC</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td style="width: 35%; background-color: #E7F3FD;">Date</td>
+        <td></td>
+      </tr>
+    </table>
+    {{/each}}
+
+  </b>
+  </body>
+</html>

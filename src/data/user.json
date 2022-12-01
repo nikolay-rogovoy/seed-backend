@@ -1,0 +1,8 @@
+[
+    {
+        "iduser": 1,
+        "name": "System administrator",
+        "login": "admin",
+        "pass": "admin"
+    }
+]

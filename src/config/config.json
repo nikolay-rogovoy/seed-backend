@@ -1,0 +1,10 @@
+{
+    "express": {
+        "port": 3023
+    },
+    "server": {
+        "pulse_schedule": false,
+        "mosk": false,
+        "max_workers": 1
+    }
+}
