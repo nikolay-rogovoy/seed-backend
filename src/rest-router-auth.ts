@@ -6,6 +6,7 @@ import { authMiddleware } from './auth-middleware';
 import { BaseAuthController } from './controllers/base-auth-controller';
 import { GetBpMetadataController } from './controllers/get-bp-metadata-controller';
 import { GetController } from './controllers/get-controller';
+import { GetFilesController } from './controllers/get-files-controller';
 import { GetListController } from './controllers/get-list-controller';
 import { SaveDataController } from './controllers/save-data-controller';
 import { T1Controller } from './controllers/t1-controller';
@@ -80,6 +81,9 @@ export class RestRouterAuth {
 
         cnt = new GetBpMetadataController();
         router.get('/bp_mt', this.setRequestContext(cnt));
+
+        cnt = new GetFilesController();
+        router.get('/get_files', this.setRequestContext(cnt));
 
         cnt = new SaveDataController(MetadataStorage.getMetadata()['cmms_wo']);
         router.post(`/cmms_wo/:iddep`, this.setRequestContext(cnt, 'iddep'));
